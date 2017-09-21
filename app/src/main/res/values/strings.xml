@@ -3,4 +3,10 @@
     <string name="text_false">False</string>
     <string name="text_true">True</string>
     <string name="next">Next  ></string>
+    <string name="question1">Are potatoes fluffy?</string>
+    <string name="question2">Is it weird to like fluffy things?</string>
+    <string name="question3">If you see a fluffy potato, you should pet it.</string>
+    <string name="question4">It is possible to be too fluffy.</string>
+    <string name="question5">It is possible to like fluffy things too much.</string>
+    <string name="question6">Am I fluffy?</string>
 </resources>

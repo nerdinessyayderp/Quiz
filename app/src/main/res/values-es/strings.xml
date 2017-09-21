@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Prueba</string>
+    <string name="next">Próximo ></string>
+    <string name="text_false">Falso</string>
+    <string name="text_true">Cierto</string>
+    <string name="question1">¿Son esponjosas las papas?</string>
+    <string name="question2">\"¿Es raro que me gusta las cosas esponjosas?\"</string>
+    <string name="question3">\"Si ves una papa esponjosa, debes acariciarla.\"</string>
+    <string name="question4">¿Es possible ser demasiado esponjoso?</string>
+    <string name="question5">¿Es possible me gusta demasiado las cosas esponjosas?</string>
+    <string name="question6">¿Soy esponjoso?</string>
+</resources>

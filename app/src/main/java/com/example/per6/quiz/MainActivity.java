@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     private Button trueButton, falseButton, nextButton;
     private TextView questionView;
     private Question[] questionList;
-    private int questionNum, points;
+    private Quiz quiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         wireWidgets();
         makeQuestions();
+        quiz = new Quiz(questionList);
         nextQuestion();
     }
 
@@ -31,36 +32,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void makeQuestions(){
-        questionList = new Question[] { new Question("Are potatoes fluffy?", 0, true), new Question("Is it weird to like fluffy things?", 1, false) };
-        questionNum = 0;
-        points = 0;
+        questionList = new Question[] { new Question(getString(R.string.question1), 0, true),
+                new Question(getString(R.string.question2), 1, false),
+                new Question(getString(R.string.question3), 2, true),
+                new Question(getString(R.string.question4), 3, false),
+                new Question(getString(R.string.question5), 4, false),
+                new Question(getString(R.string.question6), 5, true)};
     }
 
     private void nextQuestion(){
-        if(questionNum < questionList.length){
-            questionView.setText(questionList[questionNum].getQuestionText());
-            questionNum +=1;
-        }
+        questionView.setText(quiz.next());
     }
 
     public void trueClicked(View view){
-        if(questionList[questionNum - 1].checkAnswer(true)){
-            Toast.makeText(this, "Correct! You're a fluffyboi.", Toast.LENGTH_SHORT).show();
-            points += 1;
-        }
-        else{
-            Toast.makeText(this, "Incorrect. You are not a fluffyboi.", Toast.LENGTH_SHORT).show();
-        }
+        Toast.makeText(this, quiz.checkAnswer(true), Toast.LENGTH_SHORT).show();
+
     }
 
     public void falseClicked(View view){
-        if(questionList[questionNum - 1].checkAnswer(false)){
-            Toast.makeText(this, "Correct! You're a fluffyboi.", Toast.LENGTH_SHORT).show();
-            points += 1;
-        }
-        else{
-            Toast.makeText(this, "Incorrect. You are not a fluffyboi.", Toast.LENGTH_SHORT).show();
-        }
+        Toast.makeText(this, quiz.checkAnswer(false), Toast.LENGTH_SHORT).show();
     }
 
     public void nextClicked(View view){

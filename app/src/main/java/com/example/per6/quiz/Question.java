@@ -9,14 +9,17 @@ public class Question {
     private String questionText;
     private int questionNum;
     private boolean answer;
+    private boolean answered;
 
     public Question(String text, int num, boolean ans){
         questionText = text;
         questionNum = num;
         answer = ans;
+        answered = false;
     }
 
     public boolean checkAnswer(boolean userAnswer){
+        answered = true;
         if(userAnswer == answer){
             return true;
         }
@@ -32,5 +35,7 @@ public class Question {
     public String getQuestionText() {
         return questionText;
     }
+
+    public boolean checkAnswered() {return answered;}
 
 }
