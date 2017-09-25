@@ -34,14 +34,22 @@ public class Quiz {
     }
 
     public String next(){
-        if(questionNum < questionList.length){
-            questionNum +=1;
-            return questionList[questionNum-1].getQuestionText();
-        }
-        else{
-            int percent = (int)(100*(points/(double)questionList.length));
-            return "Score: "+points+"/"+questionList.length+"\nPercentage: "+percent+"%";
-        }
+        questionNum +=1;
+        return questionList[questionNum-1].getQuestionText();
+    }
+
+    public String getScore(){
+        int percent = (int)(100*(points/(double)questionList.length));
+        return "Score: "+points+"/"+questionList.length+"\nPercentage: "+percent+"%";
+    }
+
+    public int getQuestionNum(){ return questionNum; }
+
+    public void setQuestionNum(int num){ questionNum = num; }
+
+    public boolean isFinished(){
+        if(questionNum == questionList.length){ return true; }
+        else { return false; }
     }
 
 }
